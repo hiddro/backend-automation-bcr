@@ -1,0 +1,5 @@
+spring:
+  banner:
+    location: classpath:banner/bannerBCR.txt
+  application:
+    name: BACKEND-AUTOMATION-BCR

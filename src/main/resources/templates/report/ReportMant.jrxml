@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteMantenimiento" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d24ac823-e32c-4078-8a2c-033411650429">
+    <parameter name="nombre_entidad" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="45" splitType="Stretch">
+            <staticText>
+                <reportElement x="162" y="11" width="298" height="29" uuid="06582699-72a1-49f0-97a3-e1b6a2e72f39"/>
+                <textElement>
+                    <font isBold="true" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE MENSUAL DE MANTENIMIENTOS EJECUTADOS]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="75" splitType="Stretch">
+            <staticText>
+                <reportElement x="58" y="0" width="151" height="15" uuid="d56557dc-e147-4d71-9aca-0689be6fc226"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Nombre de la Entidad Regulada:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="0" width="90" height="15" uuid="9d35d8f0-0316-4bf8-ae18-304296433e73"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Año de Ejecución:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="70" y="15" width="139" height="15" uuid="0f872e9b-ca8d-4d1c-8757-53c52bc8dc55"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[    Rol de la Entidad Regulada:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="-10" y="30" width="220" height="15" uuid="f90b6dae-d1d3-433a-a984-57b1979e053e"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Duración Total Mant. Programados (En Minutos):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="15" width="90" height="15" uuid="5ad7e83a-8e10-4063-a0e7-81b61e8ae622"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Mes de Ejecución:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="355" y="30" width="150" height="15" uuid="e76db301-f18a-4b85-b8ba-b8261371757c"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Cantidad de Mant. Programados:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="-5" y="45" width="214" height="15" uuid="23e90d4f-9336-4c3f-8860-fb74f65e9ef0"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Duración Total Mant. Correctivos (En Minutos):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="355" y="45" width="150" height="15" uuid="b22226aa-1bea-45e9-a14c-917a0884c5bf"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[   Cantidad de Mant. Correctivos:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="355" y="60" width="150" height="15" uuid="313d6a03-2c69-41a8-8d33-fd7aa20e06fa"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[   Cantidad de Mant. Emergencia:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="-3" y="60" width="213" height="15" uuid="78a8abef-9889-44b0-9dee-e558f9c2466d"/>
+                <textElement>
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Duración Total Mant. Emergencia(En Minutos):]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="209" y="0" width="130" height="14" uuid="747de981-f7fb-4d2b-89f1-3c489ce33a98"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{nombre_entidad}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <detail>
+        <band height="307" splitType="Stretch">
+            <staticText>
+                <reportElement x="181" y="10" width="193" height="20" uuid="bbdf15ef-5055-48c9-b8dd-3d3f7d7483bb"/>
+                <textElement>
+                    <font isBold="true" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Mantenimientos Mensuales Ejecutados]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="130" y="40" width="80" height="20" uuid="0f7c7435-f974-43dc-84ea-99b96c60a12a"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Mantenimiento:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="58" y="60" width="161" height="20" uuid="db885efc-472a-453f-8bdf-29f9bd746686"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Fecha de Inicio (DD/M/AAAA):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="80" width="129" height="20" uuid="af76da50-79e3-4945-ba5b-c84b3e423eec"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Hora de Inicio (HH.MM.SS):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="90" y="100" width="124" height="20" uuid="ca9a923e-6556-4e50-8272-d0a9e6991ba2"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha Fin(DD/M/AAAA):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="120" width="110" height="20" uuid="24ad84f3-9f60-40a5-8f61-517d81ad2e64"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[  Hora Fin(HH.MM.SS):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="90" y="140" width="124" height="20" uuid="4a3e62a6-e014-4e42-a701-af86a3ecbc98"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Duración (En Minutos):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="90" y="160" width="124" height="20" uuid="1618c555-28e8-4971-8ef0-8b273d5d65a6"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo de Mantenimiento:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1" y="180" width="213" height="20" uuid="b1a5007e-cac9-4ab0-8c07-f9d52cdea2a7"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[¿Implicó No Disponibilidad o degradación?:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="58" y="200" width="159" height="20" uuid="2d1043d3-2087-4c32-a5c6-f9d918b1d330"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[¿Implicó Pase a Producción?:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="158" y="220" width="56" height="20" uuid="b76e96d0-0f26-4809-8d3c-4348457a0e56"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Motivo:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="50" y="240" width="154" height="20" uuid="388ae8c2-bad7-41a3-92a0-700f5a327343"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Impacto(s) en las otras Entidades:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="95" y="260" width="109" height="20" uuid="72bbd572-e539-451d-a032-a81fb265220c"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Problemas Detectados:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="87" y="280" width="114" height="20" uuid="4c7e1892-0ddd-42b2-816a-2dcf3c003ee0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ Comentarios Adicionales:]]></text>
+            </staticText>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+</jasperReport>
