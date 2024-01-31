@@ -1,63 +1,33 @@
 package com.backend.automation.bcr.controller;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import net.sf.jasperreports.engine.*;
+import com.backend.automation.bcr.model.dtos.ReporteMantenimiento;
+import com.backend.automation.bcr.service.WordService;
+import com.backend.automation.bcr.utils.Constants;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(Constants.PATH_CONTROLLER_PDF)
 public class WordController {
 
-//	@GetMapping(value = "/word",
-//			produces = "application/vnd.openxmlformats-"
-//					+ "officedocument.wordprocessingml.document")
-//	public ResponseEntity<InputStreamResource> word()
-//			throws IOException, InvalidFormatException {
-//
-//		ByteArrayInputStream bis = WordHelper.generateWord();
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.add("Content-Disposition",
-//				"inline; filename=mydoc.docx");
-//		return ResponseEntity.ok().headers(headers).
-//				body(new InputStreamResource(bis));
-//	}
+	@Autowired
+	WordService wordService;
 
-	@GetMapping(value = "/download")
-	public ResponseEntity<byte[]> wordDownload(HttpServletResponse response) {
+	@PostMapping(value = Constants.PATH_REPORT)
+	public ResponseEntity<byte[]> wordDownload(ReporteMantenimiento reporte) {
 		try {
-			// Definición de rutas y otros detalles...
-			String filePath = "src" + File.separator +
-					"main" + File.separator +
-					"resources" + File.separator +
-					"templates" + File.separator +
-					"report" + File.separator +
-					"ReportMant.jrxml";
-
-			Map<String, Object> parameters = new HashMap<>();
-			parameters.put("nombre_entidad", "BECHEPE");
-
-			JasperReport report = JasperCompileManager.compileReport(filePath);
-			JasperPrint print = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
-
 			// Exportar el informe a un flujo de bytes
-			byte[] pdfBytes = JasperExportManager.exportReportToPdf(print);
+			byte[] pdfBytes = wordService.jasperExportReport(reporte);
 
 			// Configurar el encabezado de la respuesta
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_PDF);
-			headers.setContentDisposition(ContentDisposition.builder("attachment").filename("ReportGenerated.pdf").build());
+			headers.setContentDisposition(ContentDisposition.builder(Constants.STRING_ATTACHMENT).filename(Constants.PDF_REPORTE_MANTENIMIENTO).build());
 
 			// Devolver el contenido del archivo como parte de ResponseEntity
 			return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
