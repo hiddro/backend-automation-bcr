@@ -5,21 +5,18 @@ import com.backend.automation.bcr.service.WordService;
 import com.backend.automation.bcr.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Constants.PATH_CONTROLLER_PDF)
+@CrossOrigin(origins = "*")
 public class WordController {
 
 	@Autowired
 	WordService wordService;
 
 	@PostMapping(value = Constants.PATH_REPORT)
-	public ResponseEntity<byte[]> wordDownload(ReporteMantenimiento reporte) {
+	public ResponseEntity<byte[]> wordDownload(@RequestBody ReporteMantenimiento reporte) {
 		try {
 			// Exportar el informe a un flujo de bytes
 			byte[] pdfBytes = wordService.jasperExportReport(reporte);
